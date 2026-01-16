@@ -32,10 +32,10 @@ export default function Home() {
       
       {/* HERO */}
       <section
-        className="relative min-h-[85vh] flex items-center justify-center px-6"
+        className="relative min-h-[100vh] flex items-center justify-center px-6"
         style={{
           backgroundImage:
-            "url('https://images.unsplash.com/photo-1505691938895-1758d7feb511')",
+            "url('/assests/amaya.jpeg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}

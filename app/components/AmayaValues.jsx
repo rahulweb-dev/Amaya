@@ -32,7 +32,7 @@ const AmayaComingSoon = () => {
 
             {/* Right Design Block */}
             <div className="relative bg-[#1f2a2d] p-10 md:p-16 flex items-center justify-center overflow-hidden">
-              <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_top,white,transparent_60%)]" />
+              {/* <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_top,white,transparent_60%)]" /> */}
 
               {/* Background Image */}
               <div className="absolute inset-0">
@@ -43,7 +43,7 @@ const AmayaComingSoon = () => {
                 />
               </div>
 
-              <div className="absolute -bottom-24 -right-24 h-60 w-60 rounded-full bg-[#F7D34A]/20 blur-3xl" />
+              {/* <div className="absolute -bottom-24 -right-24 h-60 w-60 rounded-full bg-[#F7D34A]/20 blur-3xl" /> */}
 
               <div className="relative text-center max-w-md">
                 {/* <div className="mx-auto h-20 w-20 rounded-[1.8rem] bg-white/10 border border-white/15 flex items-center justify-center shadow-[0_12px_40px_rgba(0,0,0,0.25)]">

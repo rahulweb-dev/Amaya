@@ -88,23 +88,42 @@ export default function Home() {
       )}
 
       {/* HERO SECTION */}
-      <section className='relative min-h-screen w-full overflow-hidden'>
-        {/* Background Image */}
-        <Image
-          src='/assests/amaya.jpeg'
-          alt='Amaya Background'
-          fill
-          priority
-          className='object-cover object-fit max-w-full hidden md:block'
-        />
-        <div className='block md:hidden absolute inset-0'>
+      <section className=' w-full overflow-hidden'>
+        <div className='block sm:hidden absolute inset-0'>
           <Image
             src='/assests/mobile_amaya.jpeg'
-            fill
-            className='w-full max-w-full lg:mt-16'
             alt='Mobile Banner'
+            fill
+            priority
+            sizes='100vw'
+            className='object-cover object-fill'
           />
         </div>
+
+        {/* Medium */}
+        <div className='hidden sm:block lg:hidden absolute inset-0'>
+          <Image
+            src='/assests/medium_copy.webp'
+            alt='Medium Banner'
+            fill
+            priority
+            sizes='100vw'
+            className='object-cover object-center'
+          />
+        </div>
+
+        {/* Desktop */}
+        <div className='hidden lg:block absolute inset-0'>
+          <Image
+            src='/assests/amaya.jpeg'
+            alt='Desktop Banner'
+            fill
+            priority
+            sizes='100vw'
+            className=' object-fill'
+          />
+        </div>
+
         {/* Overlay */}
         <div className='absolute inset-0 bg-black/30' />
         {/* <div className='absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60' /> */}
@@ -119,7 +138,7 @@ export default function Home() {
                   alt='AMAYA Logo'
                   width={140}
                   height={60}
-                  className='h-18 w-auto object-contain'
+                  className='h-18 w-full object-contain'
                   priority
                 />
               </div>
@@ -143,7 +162,7 @@ export default function Home() {
         </header>
 
         {/* Hero Content */}
-        <div className='relative z-10 min-h-screen flex items-end justify-center pb-20 px-4'>
+        <div className='relative z-10 min-h-screen flex items-center justify-center pb-20 px-4'>
           <div className='max-w-4xl text-center'>
             <p className='text-white tracking-widest uppercase mb-4 text-6xl'>
               Coming Soon
