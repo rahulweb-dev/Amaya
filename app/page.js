@@ -115,12 +115,12 @@ export default function Home() {
         {/* Desktop */}
         <div className='hidden lg:block absolute inset-0'>
           <Image
-            src='/assests/amaya.jpeg'
+            src='/assests/desktop.jpg'
             alt='Desktop Banner'
             fill
             priority
             sizes='100vw'
-            className=' object-fill'
+            className=' objext-cover'
           />
         </div>
 
@@ -164,7 +164,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className='relative z-10 min-h-screen flex items-center justify-center pb-20 px-4'>
           <div className='max-w-4xl text-center'>
-            <p className='text-white tracking-widest uppercase mb-4 text-6xl'>
+            <p className='text-white tracking-widest uppercase mb-4 text-2xl md:text-6xl'>
               Coming Soon
             </p>
 
