@@ -99,11 +99,10 @@ export default function Home() {
         />
         <div className='block md:hidden absolute inset-0'>
           <Image
-            src='/assests/mobile_amaya.jpeg' // change if you have mobile image
-            alt='Mobile Banner'
+            src='/assests/mobile_amaya.jpeg'
             fill
-            priority
-            className='object-cover '
+            className='w-full max-w-full lg:mt-16'
+            alt='Mobile Banner'
           />
         </div>
         {/* Overlay */}
