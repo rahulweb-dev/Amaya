@@ -181,7 +181,7 @@ export default function Home() {
               below and we’ll reach out as soon as we’re ready.
             </p>
 
-            <div className='mt-8 flex flex-col sm:flex-row gap-4 justify-center'>
+            <div className='mt-2 flex flex-col sm:flex-row gap-4 justify-center'>
               <a
                 href='#contact'
                 className='inline-flex items-center justify-center px-7 py-3 rounded-full bg-[#F7D34A] text-black font-semibold shadow-lg hover:brightness-95 transition'
