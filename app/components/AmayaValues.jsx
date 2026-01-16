@@ -1,96 +1,71 @@
 'use client';
-import React, { useState } from 'react';
+import React from 'react';
 
-const valuesData = [
-  {
-    title: 'Life on Your Terms',
-    desc: 'Homes built to support independence, comfort, and freedom.',
-    active: true,
-  },
-  {
-    title: 'Well-Being First',
-    desc: 'A calm environment that encourages healthy daily living.',
-  },
-  {
-    title: 'Community & Belonging',
-    desc: 'Spaces that bring people together and create connection.',
-  },
-  {
-    title: 'Trust & Dignity',
-    desc: 'Built with transparency, respect, and reliability.',
-  },
-  {
-    title: 'Thoughtful Design',
-    desc: 'Elegant planning that balances beauty with functionality.',
-  },
-];
-
-const AmayaValues = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
+const AmayaComingSoon = () => {
   return (
-    <section className="py-16 bg-[#f6f1e7]">
+    <section className="py-20 bg-[#f6f1e7]">
       <div className="max-w-7xl mx-auto px-4">
-        {/* Heading */}
-        <div className="mb-10">
-          <h2 className="text-3xl md:text-4xl font-semibold text-gray-900">
-            AMAYA Values
-          </h2>
-          <p className="mt-2 text-gray-600 max-w-2xl leading-relaxed">
-            Every AMAYA home is shaped around timeless principles — comfort,
-            trust, community, and thoughtful living.
-          </p>
-        </div>
+        <div className="rounded-[2.8rem] bg-white border border-black/10 shadow-[0_20px_60px_rgba(0,0,0,0.08)] overflow-hidden">
+          <div className="grid grid-cols-1 lg:grid-cols-2">
+            {/* Left Content */}
+            <div className="p-10 md:p-16">
+              <div className="inline-flex items-center gap-2 rounded-full border border-black/10 bg-[#f6f1e7] px-4 py-2">
+                <span className="h-2 w-2 rounded-full bg-[#1f2a2d]" />
+                <p className="text-xs tracking-[0.3em] uppercase text-gray-700">
+                  AMAYA • Launching Soon
+                </p>
+              </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {valuesData.map((item, idx) => {
-            const isActive = idx === activeIndex;
+              <h2 className="mt-6 text-3xl md:text-5xl font-semibold text-gray-900 leading-[1.15]">
+                We’re Coming Soon ✨
+              </h2>
 
-            return (
-              <div
-                key={idx}
-                onMouseEnter={() => setActiveIndex(idx)}
-                className={`cursor-pointer rounded-3xl p-6 transition duration-300 border ${
-                  isActive
-                    ? 'bg-[#1f2a2d] text-white border-[#1f2a2d] shadow-xl'
-                    : 'bg-white text-gray-900 border-gray-200 shadow-sm hover:shadow-md'
-                }`}
-              >
-                {/* Icon */}
-                <div
-                  className={`h-11 w-11 rounded-2xl flex items-center justify-center mb-4 ${
-                    isActive ? 'bg-white/10' : 'bg-gray-100'
-                  }`}
-                >
-                  <span className={`${isActive ? 'text-white' : 'text-gray-800'} text-lg`}>
-                    ✦
-                  </span>
+              <p className="mt-5 text-gray-600 leading-relaxed max-w-xl text-base md:text-lg">
+                A new way of living is on its way. AMAYA is being crafted with
+                comfort, elegance, and peaceful community living in mind.
+              </p>
+
+              <p className="mt-6 text-xs text-gray-500 tracking-wide">
+                Stay tuned for launch updates.
+              </p>
+            </div>
+
+            {/* Right Design Block */}
+            <div className="relative bg-[#1f2a2d] p-10 md:p-16 flex items-center justify-center overflow-hidden">
+              <div className="absolute inset-0 opacity-25 bg-[radial-gradient(circle_at_top,white,transparent_60%)]" />
+
+              {/* Background Image */}
+              <div className="absolute inset-0">
+                <img
+                  src="/assests/Render.jpg"
+                  alt="Coming Soon"
+                  className="h-full w-full object-cover opacity-25"
+                />
+              </div>
+
+              <div className="absolute -bottom-24 -right-24 h-60 w-60 rounded-full bg-[#F7D34A]/20 blur-3xl" />
+
+              <div className="relative text-center max-w-md">
+                <div className="mx-auto h-20 w-20 rounded-[1.8rem] bg-white/10 border border-white/15 flex items-center justify-center shadow-[0_12px_40px_rgba(0,0,0,0.25)]">
+                  <span className="text-3xl text-white">⏳</span>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-lg font-semibold">{item.title}</h3>
+                <h3 className="mt-7 text-2xl md:text-3xl font-semibold text-white">
+                  Launching Soon
+                </h3>
 
-                {/* Desc */}
-                <p className={`mt-2 text-sm leading-relaxed ${isActive ? 'text-white/75' : 'text-gray-600'}`}>
-                  {item.desc}
+                <p className="mt-3 text-white/70 text-sm md:text-base mx-auto leading-relaxed">
+                  We’re working on something beautiful. Experience a calm and premium
+                  lifestyle with AMAYA.
                 </p>
-
-                {/* Link */}
-                <button
-                  className={`mt-4 text-sm font-medium underline-offset-4 hover:underline ${
-                    isActive ? 'text-white' : 'text-gray-700'
-                  }`}
-                >
-                  Read more
-                </button>
               </div>
-            );
-          })}
+            </div>
+
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default AmayaValues;
+export default AmayaComingSoon;

@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import React from 'react';
 
 const AmayaFooter = () => {
@@ -7,16 +8,17 @@ const AmayaFooter = () => {
       <div className="max-w-7xl mx-auto px-4 py-14">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
-          <div>
-            <h2 className="text-xl font-semibold tracking-[0.25em]">AMAYA</h2>
-            <p className="text-xs tracking-[0.35em] text-white/60 mt-1">
-              REAL ESTATE
-            </p>
-
-            <p className="mt-4 text-white/70 leading-relaxed text-sm">
-              Premium living spaces crafted with comfort, trust, and thoughtful
-              design. Launching soon — stay connected for early access.
-            </p>
+          {/* Brand */}
+          <div className="flex items-center">
+            <div className="relative w-[220px] h-[80px] md:w-[260px] md:h-[90px]">
+              <Image
+                src="/assests/Amaya_Logo_Final_copy.png"
+                alt="AMAYA Logo"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </div>
 
           {/* Quick Links */}
