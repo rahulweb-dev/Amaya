@@ -119,13 +119,13 @@ export default function Home() {
                   alt='AMAYA Logo'
                   width={140}
                   height={60}
-                  className='h-12 w-auto object-contain'
+                  className='h-18 w-auto object-contain'
                   priority
                 />
               </div>
             </Link>
 
-            <nav className='hidden md:flex items-center gap-10 text-white/90 text-sm font-medium'>
+            <nav className='hidden md:flex items-center gap-10 text-white/90 text-xl font-medium '>
               <a href='#/home' className='hover:text-white transition'>
                 Home
               </a>
