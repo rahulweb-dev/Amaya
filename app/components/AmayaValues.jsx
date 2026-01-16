@@ -37,7 +37,7 @@ const AmayaComingSoon = () => {
               {/* Background Image */}
               <div className="absolute inset-0">
                 <img
-                  src="/assests/Render.jpg"
+                  src="/assests/amaya.jpeg"
                   alt="Coming Soon"
                   className="h-full w-full object-cover opacity-25"
                 />

@@ -95,7 +95,7 @@ export default function Home() {
           alt='Amaya Background'
           fill
           priority
-          className='object-cover object-fit'
+          className='object-cover object-fit max-w-full '
         />
 
         {/* Overlay */}
