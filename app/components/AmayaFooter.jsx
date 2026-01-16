@@ -61,25 +61,25 @@ const AmayaFooter = () => {
               <li>
                 <span className="text-white/50">Phone:</span>{' '}
                 <a
-                  href="tel:+919999999999"
+                  href="tel:+919000123123"
                   className="hover:text-white transition"
                 >
-                  +91 99999 99999
+                  +91 9000123123
                 </a>
               </li>
 
               <li>
                 <span className="text-white/50">Email:</span>{' '}
                 <a
-                  href="mailto:info@amaya.com"
+                  href="mailto:sales@amaya.com"
                   className="hover:text-white transition"
                 >
-                  info@amaya.com
+                 sales@amaya.com
                 </a>
               </li>
 
               <li>
-                <span className="text-white/50">Location:</span> Hyderabad, India
+                <span className="text-white/50">Location:</span> Munirabad, Medchal Malkajgiri,Telangana
               </li>
             </ul>
 

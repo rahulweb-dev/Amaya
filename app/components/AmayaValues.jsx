@@ -46,9 +46,9 @@ const AmayaComingSoon = () => {
               <div className="absolute -bottom-24 -right-24 h-60 w-60 rounded-full bg-[#F7D34A]/20 blur-3xl" />
 
               <div className="relative text-center max-w-md">
-                <div className="mx-auto h-20 w-20 rounded-[1.8rem] bg-white/10 border border-white/15 flex items-center justify-center shadow-[0_12px_40px_rgba(0,0,0,0.25)]">
+                {/* <div className="mx-auto h-20 w-20 rounded-[1.8rem] bg-white/10 border border-white/15 flex items-center justify-center shadow-[0_12px_40px_rgba(0,0,0,0.25)]">
                   <span className="text-3xl text-white">⏳</span>
-                </div>
+                </div> */}
 
                 <h3 className="mt-7 text-2xl md:text-3xl font-semibold text-white">
                   Launching Soon
