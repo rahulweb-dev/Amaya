@@ -95,9 +95,17 @@ export default function Home() {
           alt='Amaya Background'
           fill
           priority
-          className='object-cover object-fit max-w-full '
+          className='object-cover object-fit max-w-full hidden md:block'
         />
-
+        <div className='block md:hidden absolute inset-0'>
+          <Image
+            src='/assests/mobile_amaya.jpeg' // change if you have mobile image
+            alt='Mobile Banner'
+            fill
+            priority
+            className='object-cover '
+          />
+        </div>
         {/* Overlay */}
         <div className='absolute inset-0 bg-black/30' />
         {/* <div className='absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60' /> */}
