@@ -8,27 +8,90 @@ import Link from 'next/link';
 export default function Home() {
   const [formData, setFormData] = useState({
     name: '',
-    mobile: '',
+    number: '',
     email: '',
   });
+
+  const [loading, setLoading] = useState(false);
+
+  const [toast, setToast] = useState({
+    show: false,
+    message: '',
+    type: 'success', // success | error
+  });
+
+  const showToast = (message, type = 'success') => {
+    setToast({ show: true, message, type });
+
+    setTimeout(() => {
+      setToast({ show: false, message: '', type: 'success' });
+    }, 3000);
+  };
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    alert('Thank you! We will contact you soon.');
-    setFormData({ name: '', mobile: '', email: '' });
+
+    // ✅ Number validation: 10 digits & starts with 6-9
+    const phoneRegex = /^[6-9]\d{9}$/;
+    if (!phoneRegex.test(formData.number)) {
+      showToast(
+        'Enter valid 10-digit mobile number starting with 6-9',
+        'error'
+      );
+      return;
+    }
+
+    try {
+      setLoading(true);
+
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        showToast(data?.message || 'Something went wrong!', 'error');
+        return;
+      }
+
+      showToast('Thank you! We will contact you soon.', 'success');
+      setFormData({ name: '', number: '', email: '' });
+    } catch (error) {
+      showToast('Server error. Please try again!', 'error');
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div className='min-h-screen bg-white'>
+      {/* Toast */}
+      {toast.show && (
+        <div className='fixed top-6 right-6 z-[9999]'>
+          <div
+            className={`px-5 py-3 rounded-2xl shadow-xl text-sm font-medium border backdrop-blur-md
+            ${
+              toast.type === 'success'
+                ? 'bg-green-500/15 text-green-200 border-green-500/30'
+                : 'bg-red-500/15 text-red-200 border-red-500/30'
+            }`}
+          >
+            {toast.message}
+          </div>
+        </div>
+      )}
+
       {/* HERO SECTION */}
       <section
         className='relative min-h-screen w-full overflow-hidden'
         style={{
-          backgroundImage:
-            "url('/assests/Render.jpg')",
+          backgroundImage: "url('/assests/Render.jpg')",
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
@@ -40,26 +103,28 @@ export default function Home() {
         {/* Navbar */}
         <header className='absolute top-0 left-0 w-full z-20'>
           <div className='max-w-7xl mx-auto px-4 py-6 flex items-center justify-between'>
-           <Link href={'/'}> <div className='text-white font-semibold tracking-[0.25em] text-xl'>
-              <Image
-                src='/assests/Amaya_Logo_Final_copy.png'
-                alt='AMAYA Logo'
-                width={140}
-                height={60}
-                className='h-12 w-auto object-contain '
-                priority
-              />
-            </div></Link>
+            <Link href={'/'}>
+              <div className='text-white font-semibold tracking-[0.25em] text-xl'>
+                <Image
+                  src='/assests/Amaya_Logo_Final_copy.png'
+                  alt='AMAYA Logo'
+                  width={140}
+                  height={60}
+                  className='h-12 w-auto object-contain '
+                  priority
+                />
+              </div>
+            </Link>
 
             <nav className='hidden md:flex items-center gap-10 text-white/90 text-sm font-medium'>
               <a href='#/home' className='hover:text-white transition'>
                 Home
               </a>
               <a href='#Services' className='hover:text-white transition'>
-               Services
+                Services
               </a>
               <a href='#Projects' className='hover:text-white transition'>
-               Projects
+                Projects
               </a>
               <a href='#contact' className='hover:text-white transition'>
                 Contact
@@ -71,7 +136,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className='relative z-10 min-h-screen flex items-end justify-center pb-20 px-4'>
           <div className='max-w-4xl text-center'>
-            <p className='text-white  tracking-widest uppercase mb-4 text-6xl '>
+            <p className='text-white tracking-widest uppercase mb-4 text-6xl '>
               Coming Soon
             </p>
 
@@ -100,7 +165,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
       <AmayaValues />
+
       {/* LEAD FORM SECTION */}
       <section
         id='contact'
@@ -114,45 +181,21 @@ export default function Home() {
       >
         {/* Overlay */}
         <div className='absolute inset-0 bg-black/65' />
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/70 to-black/90" /> */}
 
         <div className='relative z-10 max-w-7xl mx-auto px-4'>
           <div className='grid lg:grid-cols-2 gap-12 items-center'>
             {/* Left text */}
             <div>
-              {/* <p className='text-xs tracking-[0.35em] uppercase text-white/70'>
-                Get Early Access
-              </p> */}
-
               <h2 className='mt-3 text-white text-3xl md:text-5xl font-semibold leading-tight'>
-                Sign up for <br className='hidden md:block' />  News Letter
+                Sign up for <br className='hidden md:block' /> News Letter
               </h2>
 
               <p className='text-white/75 mt-4 leading-relaxed max-w-xl'>
-                Get first updates on the project launches. Our team will contact you shortly.
+                Get first updates on the project launches. Our team will contact
+                you shortly.
               </p>
 
-              {/* <div className='mt-7 flex flex-wrap gap-3'>
-                {[
-                  'Premium Locations',
-                  'Verified Properties',
-                  'Exclusive Deals',
-                ].map((item) => (
-                  <span
-                    key={item}
-                    className='px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white/85 text-sm backdrop-blur-md'
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div> */}
-
-              <div className='mt-10 border-t border-white/15 pt-6 text-white/70 text-sm'>
-                {/* <p>
-                  <span className='text-white font-semibold'>AMAYA</span> —
-                  crafted for comfort, trust, and timeless living.
-                </p> */}
-              </div>
+              <div className='mt-10 border-t border-white/15 pt-6 text-white/70 text-sm'></div>
             </div>
 
             {/* Form card (Glass UI) */}
@@ -177,7 +220,8 @@ export default function Home() {
                       onChange={handleChange}
                       placeholder='Enter your name'
                       required
-                      className='mt-2 w-full px-4 py-3 rounded-2xl border border-white/15 bg-black/30 text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-[#F7D34A]'
+                      disabled={loading}
+                      className='mt-2 w-full px-4 py-3 rounded-2xl border border-white/15 bg-black/30 text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-[#F7D34A] disabled:opacity-60'
                     />
                   </div>
 
@@ -187,12 +231,13 @@ export default function Home() {
                     </label>
                     <input
                       type='tel'
-                      name='mobile'
-                      value={formData.mobile}
+                      name='number'
+                      value={formData.number}
                       onChange={handleChange}
                       placeholder='Enter your number'
                       required
-                      className='mt-2 w-full px-4 py-3 rounded-2xl border border-white/15 bg-black/30 text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-[#F7D34A]'
+                      disabled={loading}
+                      className='mt-2 w-full px-4 py-3 rounded-2xl border border-white/15 bg-black/30 text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-[#F7D34A] disabled:opacity-60'
                     />
                   </div>
 
@@ -207,15 +252,17 @@ export default function Home() {
                       onChange={handleChange}
                       placeholder='Enter your email'
                       required
-                      className='mt-2 w-full px-4 py-3 rounded-2xl border border-white/15 bg-black/30 text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-[#F7D34A]'
+                      disabled={loading}
+                      className='mt-2 w-full px-4 py-3 rounded-2xl border border-white/15 bg-black/30 text-white placeholder:text-white/40 outline-none focus:ring-2 focus:ring-[#F7D34A] disabled:opacity-60'
                     />
                   </div>
 
                   <button
                     type='submit'
-                    className='w-full mt-2 px-6 py-3 rounded-full bg-[#F7D34A] text-black font-semibold hover:brightness-95 transition shadow-lg'
+                    disabled={loading}
+                    className='w-full mt-2 px-6 py-3 rounded-full bg-[#F7D34A] text-black font-semibold hover:brightness-95 transition shadow-lg disabled:opacity-70 disabled:cursor-not-allowed'
                   >
-                    Submit
+                    {loading ? 'Submitting...' : 'Submit'}
                   </button>
 
                   <p className='text-xs text-white/60 text-center mt-3'>
