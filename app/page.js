@@ -88,17 +88,19 @@ export default function Home() {
       )}
 
       {/* HERO SECTION */}
-      <section
-        className='relative min-h-screen w-full overflow-hidden'
-        style={{
-          backgroundImage: "url('/assests/Render.jpg')",
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-        }}
-      >
-        {/* Soft Overlay */}
+      <section className='relative min-h-screen w-full overflow-hidden'>
+        {/* Background Image */}
+        <Image
+          src='/assests/amaya.jpeg'
+          alt='Amaya Background'
+          fill
+          priority
+          className='object-cover object-fit'
+        />
+
+        {/* Overlay */}
         <div className='absolute inset-0 bg-black/30' />
-        <div className='absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60' />
+        {/* <div className='absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60' /> */}
 
         {/* Navbar */}
         <header className='absolute top-0 left-0 w-full z-20'>
@@ -110,7 +112,7 @@ export default function Home() {
                   alt='AMAYA Logo'
                   width={140}
                   height={60}
-                  className='h-12 w-auto object-contain '
+                  className='h-12 w-auto object-contain'
                   priority
                 />
               </div>
@@ -136,7 +138,7 @@ export default function Home() {
         {/* Hero Content */}
         <div className='relative z-10 min-h-screen flex items-end justify-center pb-20 px-4'>
           <div className='max-w-4xl text-center'>
-            <p className='text-white tracking-widest uppercase mb-4 text-6xl '>
+            <p className='text-white tracking-widest uppercase mb-4 text-6xl'>
               Coming Soon
             </p>
 
@@ -153,7 +155,6 @@ export default function Home() {
               below and we’ll reach out as soon as we’re ready.
             </p>
 
-            {/* Buttons */}
             <div className='mt-8 flex flex-col sm:flex-row gap-4 justify-center'>
               <a
                 href='#contact'
