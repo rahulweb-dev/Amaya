@@ -171,7 +171,7 @@ export default function Home() {
             <h1 className='text-white font-semibold leading-[1.05] text-4xl md:text-6xl'>
               The top choice for{' '}
               <span className='text-[#F7D34A]'>luxury living</span>
-              <br className='hidden md:block' />
+              <br />
               <span className='text-white'>in Hyderabad</span>
             </h1>
 
