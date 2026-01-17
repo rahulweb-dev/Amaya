@@ -150,7 +150,7 @@ export default function Home() {
         </header>
 
         {/* Hero Content */}
-        <div className='relative z-10 h-full flex items-start mt-44  justify-center px-4 text-center'>
+        <div className='relative z-10 h-full flex items-start xl:items-center mt-44 justify-center px-4 text-center'>
           <div className='max-w-4xl'>
             <p className='text-white tracking-widest uppercase mb-4 text-2xl md:text-6xl'>
               Coming Soon
