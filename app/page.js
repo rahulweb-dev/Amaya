@@ -87,65 +87,53 @@ export default function Home() {
         </div>
       )}
 
-      {/* HERO SECTION */}
-      <section className=' w-full overflow-hidden'>
-        <div className='block sm:hidden absolute inset-0'>
-          <Image
-            src='/assests/mobile_amaya.jpeg'
-            alt='Mobile Banner'
-            fill
-            priority
-            sizes='100vw'
-            className='object-cover object-fill'
-          />
-        </div>
+      <section className='relative w-full h-[100vh] md:h-screen overflow-hidden'>
+        {/* Banner Image */}
+        <Image
+          src='/assests/mobile_amaya.jpeg'
+          alt='Banner'
+          fill
+          priority
+          sizes='100vw'
+          className='object-cover object-bottom md:hidden'
+        />
 
-        {/* Medium */}
-        <div className='hidden sm:block lg:hidden absolute inset-0'>
-          <Image
-            src='/assests/medium_copy.webp'
-            alt='Medium Banner'
-            fill
-            priority
-            sizes='100vw'
-            className='object-cover object-center'
-          />
-        </div>
-
-        {/* Desktop */}
-        <div className='hidden lg:block absolute inset-0'>
-          <Image
-            src='/assests/desktop.jpg'
-            alt='Desktop Banner'
-            fill
-            priority
-            sizes='100vw'
-            className=' objext-cover'
-          />
-        </div>
+        <Image
+          src='/assests/medium_copy.webp'
+          alt='Banner'
+          fill
+          priority
+          sizes='100vw'
+          className='object-cover hidden md:block lg:hidden object-bottom-right'
+        />
+        <Image
+          src='/assests/desktop.jpg'
+          alt='Banner'
+          fill
+          priority
+          sizes='100vw'
+          className='object-cover object-bottom-right hidden lg:block'
+        />
 
         {/* Overlay */}
-        <div className='absolute inset-0 bg-black/30' />
-        {/* <div className='absolute inset-0 bg-gradient-to-b from-black/40 via-black/20 to-black/60' /> */}
+        {/* <div className='absolute inset-0 bg-black/40' /> */}
 
         {/* Navbar */}
         <header className='absolute top-0 left-0 w-full z-20'>
           <div className='max-w-7xl mx-auto px-4 py-6 flex items-center justify-between'>
             <Link href={'/'}>
-              <div className='text-white font-semibold tracking-[0.25em] text-xl'>
-                <Image
-                  src='/assests/Amaya_Logo_Final_copy.png'
-                  alt='AMAYA Logo'
-                  width={140}
-                  height={60}
-                  className='h-18 w-full object-contain'
-                  priority
-                />
-              </div>
+              <Image
+                src='/assests/Amaya_Logo_Final_copy.png'
+                alt='AMAYA Logo'
+                width={140}
+                height={60}
+                className='h-auto w-[140px] object-contain'
+                priority
+              />
             </Link>
 
-            <nav className='hidden md:flex items-center gap-10 text-white/90 text-xl font-medium '>
-              <a href='#/home' className='hover:text-white transition'>
+            <nav className='hidden md:flex items-center gap-10 text-white/90 text-xl font-medium'>
+              <a href='#home' className='hover:text-white transition'>
                 Home
               </a>
               <a href='#Services' className='hover:text-white transition'>
@@ -162,8 +150,8 @@ export default function Home() {
         </header>
 
         {/* Hero Content */}
-        <div className='relative z-10 min-h-screen flex items-center justify-center pb-20 px-4'>
-          <div className='max-w-4xl text-center'>
+        <div className='relative z-10 h-full flex items-start mt-44  justify-center px-4 text-center'>
+          <div className='max-w-4xl'>
             <p className='text-white tracking-widest uppercase mb-4 text-2xl md:text-6xl'>
               Coming Soon
             </p>
@@ -181,7 +169,7 @@ export default function Home() {
               below and we’ll reach out as soon as we’re ready.
             </p>
 
-            <div className='mt-2  sm:flex-row gap-4 '>
+            <div className='mt-3'>
               <a
                 href='#contact'
                 className='inline-flex items-center justify-center px-5 py-2 text-sm sm:px-7 sm:py-3 sm:text-base rounded-full bg-[#F7D34A] text-black font-semibold shadow-lg hover:brightness-95 transition'
