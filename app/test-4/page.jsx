@@ -1,5 +1,7 @@
 import Image from "next/image";
 import React from "react";
+import Form from "../components/forms/Form";
+import Newsletter from "../components/forms/Newsletter";
 
 export default function Page() {
   return (
@@ -58,9 +60,9 @@ export default function Page() {
             REQUEST A PRIVATE PREVIEW
           </button>
 
-          <button className="md:px-20 sm:w-auto rounded-full bg-white/70 border border-black/20 px-3 py-2 text-[13px] tracking-[0.15em] uppercase text-black hover:bg-black hover:text-white transition">
+          {/* <button className="md:px-20 sm:w-auto hover:bg-[#3D473E] rounded-full bg-white/70 border border-black/20 px-3 py-2 text-[13px] tracking-[0.15em] uppercase text-black  hover:text-white transition">
             CONTACT US
-          </button>
+          </button> */}
         </div>
 
         <p className="mt-2 text-[10px] text-black/70 p-2.5">
@@ -81,117 +83,11 @@ export default function Page() {
           </p>
         </div>
       </section>
-      <section className="relative z-10 px-6 pt-10 md:pt-20 pb-24">
-        <div className="max-w-6xl mx-auto">
-          <form
-            // onSubmit={handleSubmitRequest}
-            className="rounded-xl bg-[#0b1c1f]/90 border border-white/10 px-6 md:px-14 py-10"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label className="block text-white/90 text-[16px] mb-2">
-                  Full Name
-                </label>
-                <input
-                  // value={formData.fullName}
-                  // onChange={(e) =>
-                  //   setFormData({ ...formData, fullName: e.target.value })
-                  // }
-                  type="text"
-                  className="w-full h-[52px] rounded-xl bg-transparent border border-white/20 px-4 text-white outline-none focus:border-white/40"
-                />
-              </div>
-
-              <div>
-                <label className="block text-white/90 text-[16px] mb-2">
-                  Phone Number
-                </label>
-                <input
-                  // value={formData.phone}
-                  // onChange={(e) =>
-                  //   setFormData({ ...formData, phone: e.target.value })
-                  // }
-                  type="tel"
-                  className="w-full h-[52px] rounded-xl bg-transparent border border-white/20 px-4 text-white outline-none focus:border-white/40"
-                />
-              </div>
-
-              <div className="md:col-span-2">
-                <label className="block text-white/90 text-[16px] mb-2">
-                  One line on what you care about most
-                </label>
-                <textarea
-                  // value={formData.note}
-                  // onChange={(e) =>
-                  //   setFormData({ ...formData, note: e.target.value })
-                  // }
-                  // rows={5}
-                  className="w-full rounded-xl bg-transparent border border-white/20 px-4 py-4 text-white outline-none focus:border-white/40 resize-none"
-                />
-              </div>
-
-              <div className="md:col-span-2 flex flex-col sm:flex-row items-center sm:items-center gap-4">
-                <button
-                  // type="submit"
-                  className="rounded-full bg-white px-10 py-3 text-[13px] uppercase text-black hover:bg-white/90 transition"
-                >
-                  SEND REQUEST
-                </button>
-              </div>
-
-              <p className="md:col-span-2 text-white/60 text-sm text-center">
-                We respect your privacy. No spam. No broadcast lists.
-              </p>
-
-              {/* {msg && (
-                <p className="md:col-span-2 text-white/80 text-sm">{msg}</p>
-              )} */}
-            </div>
-          </form>
-        </div>
-      </section>
-      <section className="relative z-10 px-6 pb-20">
-        <div className="max-w-5xl mx-auto text-center">
-          <h3 className="text-white text-[14px] md:text-[44px] font-light">
-            Stay informed about Amaya
-          </h3>
-
-          <p className="mt-4 text-white/70 text-[8px] md:text-[18px]">
-            Get updates on community events, wellness programs, and new
-            developments.
-          </p>
-
-          <form
-            // onSubmit={handleNewsletter}
-            className="mt-8 flex flex-col items-center gap-6"
-          >
-            <input
-              // value={email}
-              // onChange={(e) => setEmail(e.target.value)}
-              type="email"
-              placeholder="Enter your email"
-              className=" max-w-2xl h-[58px] rounded-full bg-white/20 border border-white/10 px-8 text-white placeholder:text-white/50 outline-none focus:border-white/30 md:w-2xl"
-            />
-
-            <button
-              // type="submit"
-              className="rounded-full bg-white px-16 py-3 text-[13px] uppercase text-black hover:bg-white/90 transition"
-            >
-              SUBMIT
-            </button>
-          </form>
-        </div>
-      </section>
+      <Form />
+      <Newsletter />
       <footer className="relative z-10 pb-5 bg-[#19262C]">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 px-6 py-6">
 
-
-          {/* Footer Text */}
-          <p className="text-center md:text-left text-white/60 text-[10px] md:text-xs max-w-md">
-            2026 Vera Vita. All rights reserved. Privacy Policy. Terms of Service
-            Cookies Settings
-          </p>
-     
           <Image
             src="/assests/Amaya_Logo_Final_copy.png"
             alt="Amaya Logo"
@@ -200,6 +96,13 @@ export default function Page() {
             className="h-auto w-[120px] md:w-[180px] object-contain"
             priority
           />
+
+          {/* Footer Text */}
+          <p className="text-center md:text-left text-white/60 text-[10px] md:text-xs max-w-md">
+            2026 Vera Vita. All rights reserved. Privacy Policy. Terms of Service
+            Cookies Settings
+          </p>
+
         </div>
       </footer>
 
