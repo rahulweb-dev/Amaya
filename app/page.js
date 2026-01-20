@@ -31,10 +31,22 @@ export default function Page() {
             priority
             className='h-auto w-[120px] md:w-[160px] object-contain'
           />
-
-          <button className='rounded-full border border-black/30 bg-white/60 px-6 py-2 text-[10px]  uppercase text-black hover:bg-black hover:text-white transition'>
+          <div className='flex items-center'>
+            <span className='text-[8px] font-bold font-stretch-50%'>
+              A Project By
+            </span>
+            <Image
+              src='/assests/Vera_Vita_Black.svg'
+              alt='Amaya Logo'
+              width={160}
+              height={30}
+              priority
+              className='h-auto w-[100px] md:w-[140px] object-contain'
+            />
+          </div>
+          {/* <button className='rounded-full border border-black/30 bg-white/60 px-6 py-2 text-[10px]  uppercase text-black hover:bg-black hover:text-white transition'>
             PRE-LAUNCH ACCESS
-          </button>
+          </button> */}
         </nav>
       </header>
 
@@ -53,7 +65,7 @@ export default function Page() {
 
         <p className=' text-[10px] md:text-[18px]  text-black/70 max-w-3xl mx-auto pl-8 pr-8 md:pl-12 md:pr-12'>
           Real estate that is built to live well in, not just to look good on
-          paper. Pre-launch access is limited
+          paper. Pre-launch access is limited.
         </p>
         <div className=' mt-2 flex flex-col sm:flex-row items-center justify-center gap-3'>
           <button className='p-8 sm:w-auto rounded-full bg-[#3f5a4d]  py-2 text-[12px]  uppercase text-white hover:bg-[#2f463c] transition'>
